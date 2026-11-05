@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validatePatientForm() {
+            var patientName = document.getElementById("patientName").value.trim();
+            var ageText = document.getElementById("age").value.trim();
+            var phone = document.getElementById("phone").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var gender = document.getElementById("gender").value;
+            var testType = document.getElementById("testType").value;
+            var message = document.getElementById("formMessage");
+
+            message.className = "message error";
+            message.innerHTML = "";
+
+            if (patientName == "") {
+                message.innerHTML = "Please enter your full name.";
+                return false;
+            }
+
+            if (ageText == "" || isNaN(ageText) ||
+                ageText.indexOf(".") != -1 ||
+                Number(ageText) < 0 || Number(ageText) > 120) {
+                message.innerHTML = "Enter a valid age between 0 and 120.";
+                return false;
+            }
+
+            if (gender == "") {
+                message.innerHTML = "Please select your gender.";
+                return false;
+            }
+
+            if (!/^[0-9]{10}$/.test(phone)) {
+                message.innerHTML = "Enter a valid 10-digit mobile number.";
+                return false;
+            }
+
+            if (email != "" && email.indexOf("@") == -1) {
+                message.innerHTML = "Enter a valid email address.";
+                return false;
+            }
+
+            if (testType == "") {
+                message.innerHTML = "Please select the required test.";
+                return false;
+            }
+
+            message.className = "message success";
+            message.innerHTML =
+                "Registration validated successfully. This demo does not save patient data.";
+
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Clinical Laboratory Management System</h1>
+        <p class="tagline">Accurate Diagnostics for Better Healthcare</p>
+    </div>
+
+    <div class="navigation">
+        <a href="index.html">Home</a> |
+        <a href="laboratory_tests.html">Laboratory Tests</a> |
+        <a href="test_details.html">Test Details</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="health_information.html">Health Information</a> |
+        <a href="test_price_table.html">Test Price Table</a> |
+        <a href="patient_registration.html">Patient Registration</a> |
+        <a href="lab_map.html">Lab Map</a>
+    </div>
+
+    <div class="main registration-main">
+        <div class="registration-panel">
+            <h2>Patient Registration</h2>
+            <p class="registration-subtitle">
+                Please enter your details to book your lab visit.
+            </p>
+
+            <form onsubmit="return validatePatientForm();">
+                <div class="registration-grid">
+                    <div class="registration-field">
+                        <label for="patientName">Full Name</label>
+                        <input type="text" id="patientName"
+                               name="patientName" placeholder="Enter full name">
+                    </div>
+
+                    <div class="registration-field">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age"
+                               min="0" max="120" step="1"
+                               placeholder="Enter age">
+                    </div>
+
+                    <div class="registration-field">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">Select gender</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="registration-field">
+                        <label for="phone">Mobile Number</label>
+                        <input type="tel" id="phone" name="phone"
+                               maxlength="10"
+                               placeholder="10-digit mobile number">
+                    </div>
+
+                    <div class="registration-field">
+                        <label for="email">Email Address</label>
+                        <input type="text" id="email" name="email"
+                               placeholder="name@example.com">
+                    </div>
+
+                    <div class="registration-field">
+                        <label for="dateOfBirth">Date of Birth</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth">
+                    </div>
+
+                    <div class="registration-field">
+                        <label for="testType">Test Required</label>
+                        <select id="testType" name="testType">
+                            <option value="">Select test</option>
+                            <option>Complete Blood Count (CBC)</option>
+                            <option>Routine Urine Examination</option>
+                            <option>HbA1c</option>
+                            <option>Liver Function Test</option>
+                            <option>Kidney Function Test</option>
+                            <option>Lipid Profile</option>
+                        </select>
+                    </div>
+
+                    <div class="registration-field">
+                        <label for="preferredDate">Preferred Date</label>
+                        <input type="date" id="preferredDate"
+                               name="preferredDate">
+                    </div>
+
+                    <div class="registration-field full-width">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="4"
+                                  placeholder="Enter your address"></textarea>
+                    </div>
+                </div>
+
+                <input class="registration-submit" type="submit"
+                       value="Submit Registration">
+
+                <p id="formMessage" class="message"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Clinical Laboratory Management System
+    </div>
+</body>
+</html>

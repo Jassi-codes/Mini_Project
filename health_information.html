@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Information - Urine Test Strip</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#glucose").click(function () {
+                $("#padTitle").text("Glucose Pad");
+                $("#padDescription").text(
+                    "Screens for glucose in urine. Results must be interpreted with clinical context."
+                );
+            });
+
+            $("#protein").click(function () {
+                $("#padTitle").text("Protein Pad");
+                $("#padDescription").text(
+                    "Screens for protein in urine. Abnormal results may need further testing."
+                );
+            });
+
+            $("#blood").click(function () {
+                $("#padTitle").text("Blood Pad");
+                $("#padDescription").text(
+                    "Screens for blood-related reactions in urine. Positive results need clinical follow-up."
+                );
+            });
+
+            $("#ketones").click(function () {
+                $("#padTitle").text("Ketone Pad");
+                $("#padDescription").text(
+                    "Screens for ketones in urine. Interpretation depends on clinical information."
+                );
+            });
+
+            $("#ph").click(function () {
+                $("#padTitle").text("pH Pad");
+                $("#padDescription").text(
+                    "Estimates the acidity or alkalinity of urine."
+                );
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Clinical Laboratory Management System</h1>
+        <p class="tagline">Accurate Diagnostics for Better Healthcare</p>
+    </div>
+
+    <div class="navigation">
+        <a href="index.html">Home</a> |
+        <a href="laboratory_tests.html">Laboratory Tests</a> |
+        <a href="test_details.html">Test Details</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="health_information.html">Health Information</a> |
+        <a href="test_price_table.html">Test Price Table</a> |
+        <a href="patient_registration.html">Patient Registration</a> |
+        <a href="lab_map.html">Lab Map</a>
+    </div>
+
+    <div class="main">
+
+        <div class="panel" style="text-align:center;">
+
+            <h2>Urine Test Strip - Image Map</h2>
+
+            <hr class="rule">
+
+            <p>
+                Click a coloured pad below to learn what that test commonly detects.
+            </p>
+
+            <img
+                src="images/urine-strip.jpg"
+                alt="Illustration of a urine reagent strip colour chart"
+                class="strip-image"
+            >
+
+            <h3>Interactive Pad Legend</h3>
+
+            <div>
+                <span class="pad" id="glucose"
+                    style="background-color:#a8d9c5;">Glucose</span>
+
+                <span class="pad" id="protein"
+                    style="background-color:#b4c7a1;">Protein</span>
+
+                <span class="pad" id="blood"
+                    style="background-color:#e5c95b;">Blood</span>
+
+                <span class="pad" id="ketones"
+                    style="background-color:#b9a5b8;">Ketones</span>
+
+                <span class="pad" id="ph"
+                    style="background-color:#e6a36f;">pH</span>
+            </div>
+
+            <div class="pad-info">
+                <h3 id="padTitle">Select a pad</h3>
+
+                <p id="padDescription">
+                    The selected pad's information will appear here.
+                </p>
+            </div>
+
+            <p class="small-note">
+                This is an educational demonstration, not a diagnostic tool.
+                A real strip must be read according to its manufacturer's
+                instructions and timing.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Clinical Laboratory Management System
+    </div>
+
+</body>
+</html>
